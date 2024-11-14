@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="refresh" content="300">
+
+<style>
+	body {
+    background-color: black;
+    
+		}
+ 	
+    #clock {
+    color: #ffffff;
+    font-family: Tahoma, "Trebuchet MS", sans-serif;
+    text-align: center;
+    font-size: 15vw;
+    	}
+   	
+    #weather {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+    max-width: 50%;
+    }
+</style>
+</head>
+<body onload="startTime()">
+
+
+<b>
+<div id="clock"></div>
+</b>
+<br>
+<div id="weather">
+<a class="weatherwidget-io" href="https://forecast7.com/en/45d09n64d36/wolfville/" data-label_1="WOLFVILLE" data-label_2="WEATHER" data-days="3" data-theme="dark" >WOLFVILLE WEATHER</a>
+</div>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML =  h + ":" + m;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+</body>
+</html>
