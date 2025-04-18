@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="refresh" content="300">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+<style>
+	body {
+    background-color: black;
+    
+		}
+ 	
+    #clock {
+    color: #ffffff;
+    font-family: "Special Gothic Expanded One";
+    text-align: center;
+    font-size: 18vw;
+    
+    	}
+   	
+    #weather {
+  margin: auto;
+  width: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
+      padding-bottom: 10px;
+    }
+</style>
+</head>
+<body onload="startTime()">
+
+
+<div id="clock"></div>
+<div id="weather">
+<a class="weatherwidget-io" href="https://forecast7.com/en/45d11n63d31/west-saint-andrews/" data-label_1="WEST SAINT ANDREWS" data-label_2="WEATHER" data-days="3" data-theme="dark" >WEST SAINT ANDREWS WEATHER</a>
+</div>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+<script>
+function currentTime() {
+  let date = new Date(); 
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "";
+
+  if(hh == 0){
+      hh = 12;
+  }
+  if(hh > 12){
+      hh = hh - 12;
+      session = "˙";
+   }
+
+   mm = (mm < 10) ? "0" + mm : mm;
+    
+   let time = session + hh + ":" + mm;
+
+  document.getElementById("clock").innerText = time; 
+  let t = setTimeout(function(){ currentTime() }, 1000);
+}
+currentTime();
+</script>
+
+</body>
+</html>
