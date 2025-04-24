@@ -1,3 +1,18 @@
-.testclass {
-  color: #000000;
+body {
+  background-color: black;
+}
+
+#clock {
+  color: #ffffff;
+  font-family: "Special Gothic Expanded One";
+  text-align: center;
+  font-size: 18vw;
+}
+
+#weather {
+  margin: auto;
+  width: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
